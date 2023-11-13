@@ -7,7 +7,6 @@ import android.telephony.SmsManager;
 import android.util.Log;
 
 public class SMSServiceSend extends Service {
-
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -18,7 +17,8 @@ public class SMSServiceSend extends Service {
         String phoneNumber = intent.getStringExtra("phoneNumber");
         String message = intent.getStringExtra("message");
 
-        if (phoneNumber != null && message != null && !phoneNumber.trim().isEmpty() && !message.trim().isEmpty()) {
+        if (phoneNumber != null && !phoneNumber.trim().isEmpty() &&
+                message != null && !message.trim().isEmpty()) {
             sendSMS(phoneNumber, message);
         }
 
